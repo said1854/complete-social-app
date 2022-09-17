@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const port = process.env.PORT;
 import conn from './model/db.js';
+import pageRoute from './routes/pageRoute.js';
 
 //connection to database
 conn();
@@ -14,12 +15,9 @@ app.set('view engine', 'ejs');
 //Static files middleware
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.render('index');
-})
-app.get('/about', (req, res) => {
-    res.render('about');
-})
+//Routes
+app.use('/', pageRoute);
+
 app.get('/services', (req, res) => {
     res.render('services');
 })
