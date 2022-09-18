@@ -3,7 +3,7 @@ const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
 const port = process.env.PORT;
-import conn from './model/db.js';
+import conn from './db.js';
 import pageRoute from './routes/pageRoute.js';
 
 //connection to database
